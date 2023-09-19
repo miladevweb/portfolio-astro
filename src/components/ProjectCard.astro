@@ -1,0 +1,23 @@
+---
+interface Props {
+   title: string;
+   description: string;
+   image: string;
+}
+
+const { title, description, image } = Astro.props;
+---
+
+<a
+   class="parent-container scroll-mt-48 hover:scale-[105%] transition-all duration-300 ease-in relative border border-white/80 bg-cover bg-center h-[300px] cursor-pointer"
+   id={image}
+   href={`/${image}`}
+   style={{ backgroundImage: `linear-gradient(to bottom, hsla(0, 0%, 100%, 0.05), hsla(0, 0%, 0%)),url(${image}.jpg)` }}
+   transition:name={`image-${image}`}
+>
+   <div class="container absolute bottom-0 px-5 my-6">
+      <h3 class="text-5xl font-bold">{title}</h3>
+
+      <p class="paragraph text-white/60 row-span-1 opacity-0 md:text-base xxs:text-[20px] xs:text-[15px]">{description.slice(0, 60)} ...</p>
+   </div>
+</a>

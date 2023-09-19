@@ -1,0 +1,53 @@
+<section class="flex justify-center mx-auto py-16 xl:w-[80%] sm:w-full xs:w-[75%]">
+   <div class="sm:w-[50%] xs:w-full">
+      <h2 class="text-5xl w-fit font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 from-30% via-orange-500 via-70% to-orange-400">Contact Me</h2>
+      <p class="opacity-50">Feel free to reach out for collaborations, inquiries, or just a friendly coding chat anytime!</p>
+
+      <form
+         id="form"
+         autocomplete="off"
+         class="flex flex-col py-2 mt-1"
+      >
+         <!--=============== Name ===============-->
+         <label
+            for="from_name"
+            class="font-bold text-[17px] opacity-90"
+            >Name</label
+         >
+         <input
+            type="text"
+            class="bg-transparent border-white/50 border-2 placeholder:text-white/50 px-3 py-[5px] rounded-md mb-3 md:w-[80%] xs:w-full"
+            id="from_name"
+            name="from_name"
+            placeholder="What's your name?"
+         />
+
+         <!--=============== Message ===============-->
+         <label
+            for="message"
+            class="font-bold text-[17px] opacity-90"
+            >Message</label
+         >
+         <input
+            type="text"
+            name="message"
+            id="message"
+            class="bg-transparent border-white/50 border-2 placeholder:text-white/50 px-3 py-[5px] rounded-md mb-3 md:w-[80%] xs:w-full"
+            placeholder="Type here..."
+         />
+
+         <!--=============== Button ===============-->
+         <button
+            class="border-2 border-gray-400 rounded-md bg-transparent w-fit px-8 py-1 my-4"
+            id="button"
+            >Submit</button
+         >
+      </form>
+   </div>
+
+   <img
+      src="/macbook.png"
+      alt="#"
+      class="h-[220px] self-center md:w-[20%] xs:w-0"
+   />
+</section>

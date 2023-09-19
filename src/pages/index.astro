@@ -1,0 +1,26 @@
+---
+import Form from '../components/Form.astro';
+import Layout from '../layouts/Layout.astro';
+import About from '../components/About.astro';
+import Navbar from '../components/Navbar.astro';
+import Projects from '../components/Projects.astro';
+import Separator from '../components/Separator.astro';
+import Technologies from '../components/Technologies.astro';
+import ProfilePicture from '../components/ProfilePicture.astro';
+---
+
+<Layout title="MilaDev | Portfolio">
+   <Navbar />
+
+   <main
+      class="mt-16 scroll-mt-36"
+      id="home"
+   >
+      <ProfilePicture />
+      <Separator />
+      <About />
+      <Technologies />
+      <Projects />
+      <Form />
+   </main>
+</Layout>

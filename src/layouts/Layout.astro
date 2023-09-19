@@ -1,0 +1,61 @@
+---
+interface Props {
+   title: string;
+}
+
+import '../assets/style.css';
+const { title } = Astro.props;
+import { ViewTransitions } from 'astro:transitions';
+---
+
+<!doctype html>
+<html
+   lang="en"
+   class="scroll-smooth"
+>
+   <head>
+      <meta charset="UTF-8" />
+      <meta
+         name="description"
+         content="Astro description"
+      />
+      <meta
+         name="viewport"
+         content="width=device-width"
+      />
+      <link
+         rel="icon"
+         type="image/svg+xml"
+         href="/favicon.svg"
+      />
+      <meta
+         name="generator"
+         content={Astro.generator}
+      />
+
+      <!--=============== BoxIcons ===============-->
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+      />
+
+      <title>{title}</title>
+
+      <!--=============== Email JS ===============-->
+      <script
+         type="text/javascript"
+         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+      ></script>
+
+      <script type="text/javascript">
+         emailjs.init('Zy7aUsKbfBplaYqrE');
+      </script>
+
+      <!--=============== View Transition ===============-->
+      <ViewTransitions />
+   </head>
+   <body class="bg-black text-white">
+      <slot />
+      <script src="../assets/index.js"></script>
+   </body>
+</html>

@@ -1,0 +1,52 @@
+---
+import { technologies } from '../assets/data';
+import TechnologyCard from './TechnologyCard.astro';
+---
+
+<div
+   class="w-[75%] mx-auto mt-20 mb-10"
+   data-tech-h1
+>
+   <h2 class="cursor-pointer font-bold w-fit md:mx-0 md:ml-5 sm:text-6xl xs:text-[40px] xs:mx-auto">Technologies</h2>
+</div>
+
+<!--=============== Slider ===============-->
+<div
+   class="overflow-x-hidden whitespace-nowrap cursor-pointer"
+   data-tech-wrapper
+>
+   <div class="tech-card inline-block">
+      {
+         technologies.map((tech) => (
+            <div class="inline-block m-0">
+               <TechnologyCard
+                  text={tech.text}
+                  logo={tech.logo}
+               />
+            </div>
+         ))
+      }
+   </div>
+</div>
+
+<!--=============== Modal ===============-->
+<div
+   class="w-screen h-screen bg-black/70 fixed top-0 left-0 z-[100] justify-center items-center hidden"
+   data-tech-modal
+>
+   <div
+      class="tech-modal w-4/5 h-[70%] overflow-y-auto flex flex-wrap justify-center items-center gap-x-5 gap-y-4 bg-violet-600"
+      data-tech-stop
+   >
+      {
+         technologies.map((tech) => (
+            <div class="inline-block m-0">
+               <TechnologyCard
+                  text={tech.text}
+                  logo={tech.logo}
+               />
+            </div>
+         ))
+      }
+   </div>
+</div>

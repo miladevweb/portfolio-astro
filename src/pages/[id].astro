@@ -1,0 +1,81 @@
+---
+const { id } = Astro.params;
+import Layout from '../layouts/Layout.astro';
+import { projects, buttons } from '../assets/data';
+
+export function getStaticPaths() {
+   return [
+      { params: { id: 'image-blog' } },
+      { params: { id: 'image-youtube-clone' } },
+      { params: { id: 'image-ecommerce' } },
+      { params: { id: 'image-facebook-clone' } },
+      { params: { id: 'image-instagram-clone' } },
+      { params: { id: 'image-slider' } },
+      { params: { id: 'image-spotify-clone' } },
+      { params: { id: 'image-chatgpt-api' } },
+   ];
+}
+
+const card = projects.find((card) => card.image == id);
+---
+
+<Layout title={`Project | ${id}`}>
+   <div
+      class="relative flex items-center lg:h-screen xs:h-fit"
+      transition:name={`image-${id}`}
+      transition:persist
+   >
+      <!--=============== Background ===============-->
+      <div
+         class="absolute min-h-screen inset-0 z-[-1] bg-gradient-to-b from-context"
+         style=`--context-color: ${card.color}`
+      >
+         <img
+            src={`${id}.jpg`}
+            alt="#"
+            id="fade-image"
+            class="transition-all duration-500 absolute z-[-1] inset-0 mix-blend-overlay opacity-20 scale-90 w-full h-full object-cover blur-md"
+         />
+
+         <div class="absolute inset-0 bg-gradient-to-t via-transparent from-zinc-900"></div>
+      </div>
+
+      <!--=============== Main Section ===============-->
+      <div class="flex justify-center items-center w-full h-[80%] xs:h-fit">
+         <div class="flex gap-x-10 2xl:mt-2 2xl:w-3/5 2xl:h-fit xl:w-4/5 lg:mt-0 lg:flex-row lg:h-[90%] xs:w-4/5 xs:flex-col-reverse">
+            <img
+               src={`${id}.jpg`}
+               alt="#"
+               class="hover:scale-[105%] duration-300 ease-in aspect-square object-cover object-top mx-auto lg:mb-0 lg:mt-0 sm:w-[450px] xxs:mt-10 xs:w-[90%] xs:mb-5 xs:mt-20"
+            />
+
+            <div class="flex flex-col gap-y-3 relative lg:py-0 xs:py-7">
+               <h1 class="font-black sm:text-[75px] sm:leading-[70px] xxs:text-[60px] xxs:leading-[55px] xs:text-[45px] xs:leading-[40px]">{card.title}</h1>
+               <p class="text-white/70 sm:text-[14px] xs:text-[12px]">{card.description}</p>
+
+               <!--=============== Buttons ===============-->
+               <div class="absolute flex gap-x-5 lg:bottom-4 xxs:right-16 xxs:flex-row xxs:-bottom-4 xs:flex-col xs:-bottom-16 xs:right-[calc(100vw-90%)]">
+                  <a
+                     href={`/#${id}`}
+                     class="text-2xl opacity-60 hover:opacity-100 duration-300 ease-in"
+                     ><i class={`${buttons[0].back} lg:text-[17px] xs:text-[14px]`}> Back</i></a
+                  >
+
+                  <a
+                     target="_blank"
+                     href={buttons[0].hrefgithub}
+                     class="text-2xl opacity-60 hover:opacity-100 duration-300 ease-in"
+                     ><i class={`${buttons[0].github} lg:text-[17px] xs:text-[14px]`}> Repository</i></a
+                  >
+
+                  <a
+                     href="#"
+                     class="text-2xl opacity-60 hover:opacity-100 duration-300 ease-in"
+                     ><i class={`${buttons[0].demo} lg:text-[17px] xs:text-[14px]`}> Live Demo</i></a
+                  >
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</Layout>
